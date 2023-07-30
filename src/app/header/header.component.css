@@ -1,0 +1,22 @@
+.header .mat-toolbar-row {
+  padding: 1rem;
+  justify-content: center;
+  align-items: baseline;
+  height: 100%;
+}
+.header .form-field{
+  height: 100%;
+  width: 50%;
+}
+
+.header {
+  margin-bottom: 4rem;
+}
+.mat-toolbar {
+  background: linear-gradient(45deg, rgb(124, 24, 182) 10%, rgb(121, 73, 202) 46%, rgb(223, 211, 247) 89%) !important;
+}
+.title {
+  font-size: 48px;
+  font-weight: 1.2;
+  line-height: 1.18;
+}
