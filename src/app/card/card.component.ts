@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DataService} from "../data.service";
+import {Subject, takeUntil} from "rxjs";
 
 
 interface ICityWeather {
@@ -48,16 +49,22 @@ interface ICityWeather {
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
 })
-export class CardComponent implements OnInit{
+export class CardComponent implements OnInit, OnDestroy {
+  notifier = new Subject();
 
   constructor(private dataService: DataService) {
   }
+
   public searchResult: any = null
 
   ngOnInit() {
-    this.dataService.data.subscribe((e: any) => {
-      console.log(e, '20202')
-      this.searchResult = e
+    this.dataService.data.pipe(takeUntil(this.notifier)).subscribe((infoTown: any) => {
+      this.searchResult = infoTown
     })
+  }
+
+  ngOnDestroy() {
+    this.notifier.next('');
+    this.notifier.complete()
   }
 }
