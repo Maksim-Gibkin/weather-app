@@ -13,12 +13,16 @@ import {MatInputModule} from "@angular/material/input";
 import { CardComponent } from './card/card.component';
 import {MatCardModule} from "@angular/material/card";
 import {HttpClientModule} from "@angular/common/http";
+import { PreviewCardDirective } from './preview-card.directive';
+import {MatBadgeModule} from "@angular/material/badge";
+import {DataService} from "./data.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CardComponent
+    CardComponent,
+    PreviewCardDirective
   ],
   imports: [
     BrowserModule,
@@ -31,8 +35,9 @@ import {HttpClientModule} from "@angular/common/http";
     MatInputModule,
     MatCardModule,
     HttpClientModule,
+    MatBadgeModule,
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
