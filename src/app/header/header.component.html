@@ -9,7 +9,7 @@
             <mat-form-field class="form-field">
 
                 <mat-label>Введите город</mat-label>
-                <input matInput type="text"  name="city" [(ngModel)]="searchValue">
+                <input matInput type="text"  name="city" [(ngModel)]="searchValue" placeholder="London, UK">
                 <button *ngIf="searchValue" matSuffix mat-icon-button color="warn" (click)="searchValue=''">
                     <mat-icon>close</mat-icon>
                 </button>

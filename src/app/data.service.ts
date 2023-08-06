@@ -14,7 +14,7 @@ export class DataService {
         const params = new HttpParams()
             .set('key', this.apiKey)
             .set('q', city || 'London');
-        this.data.next(this.http.get('http://api.weatherapi.com/v1/current.json', {params}))
+        // this.data.next(this.http.get('http://api.weatherapi.com/v1/current.json', {params}))
 
         return this.http.get('http://api.weatherapi.com/v1/current.json', {params});
     }
